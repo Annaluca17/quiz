@@ -6,7 +6,7 @@ status: open
 
 ## Destination
 
-Specifica pronta da eseguire per il questionario live della festa aziendale (~70 persone, tra ~2 mesi): domande definitive con risposte corrette, piattaforma live + strumento per il Messaggio all'AD scelti, gamification anonima, rivelazioni animate, scaletta della serata, piano B.
+Specifica pronta da eseguire per il questionario live della festa aziendale (~70 persone, tra ~2 mesi): domande definitive con risposte corrette, piattaforma live + strumento per il Messaggio all'AD scelti, gamification anonima, rivelazioni animate, scaletta della serata.
 
 ## Notes
 
@@ -41,9 +41,9 @@ Specifica pronta da eseguire per il questionario live della festa aziendale (~70
 - Battute a voce dell'AD per ogni Rivelazione (compresa la puntualità degli stipendi sul Quiz 3), da scrivere dopo i dati reali; circa 1 minuto ciascuna. Scaletta stampata di una pagina per l'AD.
 - Testo dell'annuncio finale dell'AD (slot a porta aperta, invito esplicito a scrivere anche le critiche nel Messaggio all'AD) + ultima schermata con link/QR al Messaggio all'AD.
 - Prova generale (quando, con chi, senza rompere il segreto); va cronometrata sulla scaletta e serve a tarare la soglia del premio.
-- Piano B: rete o piattaforma che cadono durante la serata.
 - Gestione del segreto verso board e direzione fino alla serata (materiali, account, dati richiesti).
 
 ## Out of scope
 
+- Piano B per rete o piattaforma che cadono durante la serata: escluso da Luca. La rete regge e si verifica prima, con la [Verifica della connettività della location](tickets/08-connettivita-location.md) e la prova di carico. Supera il "Piano B resta necessario" della [Scelta delle piattaforme](tickets/05-scelta-piattaforme.md).
 - Esecuzione della restituzione dei risultati ai dipendenti (decisa nei principi, eseguita dopo l'evento).
