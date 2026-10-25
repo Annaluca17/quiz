@@ -2,7 +2,7 @@
 title: Meccanica di gamification anonima
 labels: [wayfinder:grilling]
 status: open
-assignee:
+assignee: Luca
 blocked_by: [01-piattaforme-live]
 ---
 
