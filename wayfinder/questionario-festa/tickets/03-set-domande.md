@@ -2,7 +2,7 @@
 title: Set di domande definitivo
 labels: [wayfinder:grilling]
 status: open
-assignee:
+assignee: Luca
 blocked_by: []
 ---
 
