@@ -28,3 +28,5 @@ Da decidere con Luca:
 - scomposizione del costo sul Quiz 3: sì/no, e con quali voci (dipende dal ticket 04);
 - commento dell'AD proiettato in prima persona o solo detto a voce;
 - "brevi video" del Question: servono ancora o bastano le animazioni.
+
+Iterazione 2 (scelta di Luca): variante A (asse con un pallino per voto) più la scomposizione della variante C, con i colori aziendali Immedia (cyan per la sala, gold per la realtà, navy per il testo; Nunito e Inter; logo nel piede). Sequenza: Domanda → L'AD indovina → La sala ha stimato → La realtà è → Da dove vengono (solo se il Quiz ha una scomposizione, ora il 3) → Commento dell'AD. Le varianti B e C non sono più nel file.
