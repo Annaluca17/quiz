@@ -7,3 +7,4 @@
 - **Regia**: chi manovra il PC collegato al proiettore (Luca). Distinta dalla **Conduzione** (l'AD, che parla alla sala).
 - **Voce dell'AD**: il questionario parla in prima persona dell'AD, come se fosse opera sua ("ciascuno di noi", "C'è qualcosa che vuoi dirmi?"). La Regia non compare mai nei testi.
 - **Collegato**: telefono che ha aperto la pagina del questionario dal QR. Una volta collegato, resta contato fino alla fine. È il riferimento per la partecipazione ("Hanno risposto X su N collegati").
+- **Prova**: esecuzione completa del questionario fuori dalla serata (prova di carico, prova generale), con dati tenuti separati da quelli della serata reale.

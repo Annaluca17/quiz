@@ -22,7 +22,7 @@ Specifica pronta da eseguire, e SPA realizzata e pubblicata, per il questionario
 - **Tono (vincolante su ogni ticket)**: l'AD è "sul piede di guerra" sui benefit dati per scontati; Luca fa da paciere. Il messaggio è "ti costo tanto, ricordalo, ma ti voglio bene": valorizzare, non rinfacciare; niente scontro con i dipendenti.
 - Finalità del Quiz: rendere visibile il costo dei benefit ormai dati per scontati.
 - A fine di ogni ticket: indicare a Luca prompt, skill e modello del passo successivo.
-- **Esecuzione nella mappa (decisione di Luca):** la realizzazione della SPA (codice, deploy, prova di carico) è nel perimetro e procede per ticket `wayfinder:task` derivati dall'Architettura della SPA. Il discorso dell'AD resta fuori.
+- **Esecuzione nella mappa (decisione di Luca):** la realizzazione della SPA (codice, deploy, prova di carico) è nel perimetro e procede per ticket `wayfinder:task` derivati dall'Architettura della SPA. Il discorso dell'AD (battute, annuncio finale) non entra in questi ticket.
 - Dopo la serata: export solo all'AD; sintesi ai dipendenti entro 2–3 settimane (esecuzione fuori perimetro).
 
 ## Decisions so far
@@ -36,15 +36,17 @@ Specifica pronta da eseguire, e SPA realizzata e pubblicata, per il questionario
 - [Scelta delle piattaforme](tickets/05-scelta-piattaforme.md): SPA su misura (Vercel Hobby + Supabase Realtime free, account Luca) per Quiz e Polso; Tally con email personale dell'AD per il Messaggio all'AD (riserva: Google Form dell'AD); da verificare l'uso di Vercel Hobby per un evento aziendale.
 - [Rivelazioni e animazioni video delle risposte](tickets/07-rivelazioni-animate.md): asse in euro con un pallino per voto, bandierina della realtà con lo scarto "+X € di quanto stimato" (stima = media pesata), scomposizione del costo solo sul Quiz 3, colori Immedia, commento dell'AD solo a voce, niente video.
 - [Scaletta e durata del momento questionario](tickets/09-scaletta-durata.md): a inizio serata, appena seduti e prima dell'antipasto, circa 30 minuti (limite 35). Countdown visibile di 30 s per i Quiz e 20 s per i Polso, "L'AD indovina la sala" sui Quiz 4 e 7, distribuzione dei Polso solo a voto chiuso, denominatore = telefoni collegati (cumulativo), partenza manuale.
+- [Architettura della SPA](tickets/10-architettura-spa.md): Vite + React + TS in `app/`, nuovo progetto Supabase dedicato; viste telefono, `/schermo` e `/regia` (Auth di Luca) su una riga `stato` letta da tutti; voti via RPC, conteggi solo a schermo e regia, Collegati cumulativi; contenuti in un file TS con segnaposto; export di soli aggregati.
 
 ## Not yet specified
 
 - Battute a voce dell'AD per ogni Rivelazione (compresa la puntualità degli stipendi sul Quiz 3), da scrivere dopo i dati reali; circa 1 minuto ciascuna. Scaletta stampata di una pagina per l'AD.
-- Testo dell'annuncio finale dell'AD (slot a porta aperta, invito esplicito a scrivere anche le critiche nel Messaggio all'AD) + ultima schermata con link/QR al Messaggio all'AD.
+- Testo dell'annuncio finale dell'AD (slot a porta aperta, invito esplicito a scrivere anche le critiche nel Messaggio all'AD). La schermata con il QR è nel ticket [Premio e schermata finale con QR di Tally](tickets/14-schermata-finale-tally.md).
 - Prova generale (quando, con chi, senza rompere il segreto); va cronometrata sulla scaletta e serve a tarare la soglia del premio.
+- Configurazione del modulo Tally con l'AD (una domanda, chiusura a 48 ore, account dell'AD): ne serve l'URL per il QR della schermata finale.
 - Gestione del segreto verso board e direzione fino alla serata (materiali, account, dati richiesti).
 
 ## Out of scope
 
-- Piano B per rete o piattaforma che cadono durante la serata: escluso da Luca. La rete regge e si verifica prima, con la [Verifica della connettività della location](tickets/08-connettivita-location.md) e la prova di carico. Supera il "Piano B resta necessario" della [Scelta delle piattaforme](tickets/05-scelta-piattaforme.md).
+- Piano B per rete o piattaforma che cadono durante la serata: escluso da Luca. La rete regge e si verifica prima, con la [Verifica della connettività della location](tickets/08-connettivita-location.md) e la [Prova di carico con 70 client](tickets/17-prova-carico.md). Supera il "Piano B resta necessario" della [Scelta delle piattaforme](tickets/05-scelta-piattaforme.md).
 - Esecuzione della restituzione dei risultati ai dipendenti (decisa nei principi, eseguita dopo l'evento).
