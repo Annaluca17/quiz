@@ -33,6 +33,7 @@ Oggetto: Serata del [data] – informazioni tecniche su rete e proiezione
 > 3. Proiezione: avete proiettore o schermo? Quale ingresso video (HDMI, VGA, altro), e a che distanza dal punto di collegamento si trova il PC? Servono adattatori?
 > 4. Audio e corrente: è disponibile un impianto audio collegabile al PC? Ci sono prese vicino alla postazione?
 > 5. Accesso anticipato: sarebbe possibile un sopralluogo o un accesso breve prima dell'evento per verificare i collegamenti?
+> 6. Servizio: è previsto un breve intervento di apertura appena gli ospiti sono seduti. Sarebbe possibile iniziare a servire circa 30 minuti dopo?
 >
 > Resto a disposizione per un contatto telefonico.
 > Grazie e cordiali saluti
@@ -67,6 +68,7 @@ Proiezione
 Logistica
 - [ ] Data/ora del sopralluogo o accesso anticipato: 
 - [ ] Orario di allestimento la sera dell'evento: 
+- [ ] Servizio rinviato di circa 30 minuti dopo che gli ospiti si sono seduti: confermato sì/no
 
 ### Test minimi in loco (senza rivelare lo scopo)
 

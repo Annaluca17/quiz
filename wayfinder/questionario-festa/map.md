@@ -34,12 +34,13 @@ Specifica pronta da eseguire per il questionario live della festa aziendale (~70
 - [Meccanica di gamification anonima](tickets/06-gamification.md): un'unica squadra, la sala. Le Rivelazioni mostrano "La sala ha stimato / La realtà è", una barra di partecipazione sblocca un premio collettivo a soglia raggiungibile e su 2 Quiz l'AD prova a indovinare il voto della sala. Niente punteggi individuali, nickname, squadre o classifiche.
 - [Scelta delle piattaforme](tickets/05-scelta-piattaforme.md): SPA su misura (Vercel Hobby + Supabase Realtime free, account Luca) per Quiz e Polso; Tally con email personale dell'AD per il Messaggio all'AD (riserva: Google Form dell'AD); da verificare l'uso di Vercel Hobby per un evento aziendale.
 - [Rivelazioni e animazioni video delle risposte](tickets/07-rivelazioni-animate.md): asse in euro con un pallino per voto, bandierina della realtà con lo scarto "+X € di quanto stimato" (stima = media pesata), scomposizione del costo solo sul Quiz 3, colori Immedia, commento dell'AD solo a voce, niente video.
+- [Scaletta e durata del momento questionario](tickets/09-scaletta-durata.md): a inizio serata, appena seduti e prima dell'antipasto, circa 30 minuti (limite 35). Countdown visibile di 30 s per i Quiz e 20 s per i Polso, "L'AD indovina la sala" sui Quiz 4 e 7, distribuzione dei Polso solo a voto chiuso, denominatore = telefoni collegati (cumulativo), partenza manuale.
 
 ## Not yet specified
 
-- Battute a voce dell'AD per ogni Rivelazione (compresa la puntualità degli stipendi sul Quiz 3), da scrivere dopo i dati reali.
+- Battute a voce dell'AD per ogni Rivelazione (compresa la puntualità degli stipendi sul Quiz 3), da scrivere dopo i dati reali; circa 1 minuto ciascuna. Scaletta stampata di una pagina per l'AD.
 - Testo dell'annuncio finale dell'AD (slot a porta aperta, invito esplicito a scrivere anche le critiche nel Messaggio all'AD) + ultima schermata con link/QR al Messaggio all'AD.
-- Prova generale (quando, con chi, senza rompere il segreto).
+- Prova generale (quando, con chi, senza rompere il segreto); va cronometrata sulla scaletta e serve a tarare la soglia del premio.
 - Piano B: rete o piattaforma che cadono durante la serata.
 - Gestione del segreto verso board e direzione fino alla serata (materiali, account, dati richiesti).
 
