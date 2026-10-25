@@ -29,11 +29,12 @@ Specifica pronta da eseguire per il questionario live della festa aziendale (~70
 
 - [Piattaforme live gratuite per 70 partecipanti anonimi](tickets/01-piattaforme-live.md): nessun free tier pronto è sufficiente; web app su misura (Supabase realtime) fattibile, in alternativa piano a pagamento una tantum (Slido/Mentimeter).
 - [Strumenti gratuiti per il Messaggio all'AD anonimo di 48 ore](tickets/02-strumento-messaggio-ad.md): Tally come candidato principale, Google Form personale come riserva.
+- [Set di domande definitivo](tickets/03-set-domande.md): 12 domande a scelta chiusa con la voce dell'AD (2 di apertura, 5 Quiz su costo ogni 100 € netti, buoni pasto, welfare, assicurazione sanitaria e premio di produzione, 4 Polso con spazio alle critiche, 1 di chiusura) più il Messaggio all'AD "C'è qualcosa che vuoi dirmi?".
 
 ## Not yet specified
 
 - Scaletta e durata del momento questionario nella serata.
-- Testo dell'annuncio finale dell'AD (slot a porta aperta) + ultima schermata con link/QR al Messaggio all'AD.
+- Testo dell'annuncio finale dell'AD (slot a porta aperta, invito esplicito a scrivere anche le critiche nel Messaggio all'AD) + ultima schermata con link/QR al Messaggio all'AD.
 - Prova generale (quando, con chi, senza rompere il segreto).
 - Piano B: rete o piattaforma che cadono durante la serata.
 - Gestione del segreto verso board e direzione fino alla serata (materiali, account, dati richiesti).
