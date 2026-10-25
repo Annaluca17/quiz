@@ -1,0 +1,346 @@
+<title>Prototipo Rivelazioni</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<!--
+  PROTOTIPO USA E GETTA – ticket 07 "Rivelazioni e animazioni video delle risposte".
+  Domanda: come devono apparire le Rivelazioni perché "ti costo tanto, ma ti voglio bene" arrivi con leggerezza?
+  Tre varianti radicalmente diverse sulla stessa schermata proiettata (#a, #b, #c), Quiz 3 e Quiz 7.
+  Valori e voti sono SEGNAPOSTO in attesa del ticket 04 (dati reali dall'AD).
+  Regia: Spazio / PagGiù = avanti, Backspace / PagSu = indietro, ← → = variante, 1 / 2 = domanda.
+-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Layout: palco 16:9 proiettato, regia in basso fuori dal palco. Unico look scuro voluto (sala in penombra). */
+:root {
+  --stage: #10262e;      /* fondo palco, blu petrolio */
+  --stage-2: #173640;
+  --ink: #f4efe4;        /* testo proiettato */
+  --muted: #9fb7bd;
+  --sala: #7cc6d6;       /* colore della sala (voti) */
+  --real: #ffb347;       /* colore della realtà (valore vero) */
+  --page: #0b1a20;
+  --bar: #f4efe4;
+  --bar-ink: #10262e;
+  --display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", Verdana, system-ui, sans-serif;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  background: var(--page); color: var(--ink); font-family: var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 16px 140px;
+  box-sizing: border-box;
+}
+#root { display: grid; gap: 12px; justify-items: center; }
+.note { font-size: 13px; color: var(--muted); max-width: 70ch; text-align: center; }
+.note b { color: var(--real); }
+
+.stage {
+  container-type: inline-size;
+  width: min(100%, calc((100vh - 200px) * 16 / 9), 1600px);
+  aspect-ratio: 16 / 9; max-width: 100%;
+  background: radial-gradient(120% 90% at 50% 0%, var(--stage-2), var(--stage));
+  border-radius: 6px; overflow: hidden; position: relative;
+  display: grid; grid-template-rows: auto minmax(0, 1fr) auto;
+  padding: 3.2cqw 4cqw 2.4cqw; box-sizing: border-box;
+}
+.eyebrow { font-size: 1.5cqw; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.q { font-family: var(--display); font-weight: 800; font-size: 3.4cqw; line-height: 1.08; margin: .6cqw 0 0; text-wrap: balance; max-width: 80%; }
+.q.small { font-size: 2.2cqw; font-weight: 500; }
+.center { display: grid; place-items: center; text-align: center; }
+.big { font-family: var(--display); font-weight: 800; font-variant-numeric: tabular-nums; line-height: .95; }
+.label { font-size: 1.8cqw; letter-spacing: .08em; text-transform: uppercase; }
+.sala { color: var(--sala); } .real { color: var(--real); }
+.ph { font-size: 1.1cqw; color: var(--muted); border: 1px dashed var(--muted); border-radius: 99px; padding: .2cqw .8cqw; position: absolute; top: 1.4cqw; right: 1.6cqw; }
+
+/* opzioni in fase di voto */
+.opts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4cqw 2cqw; align-content: center; }
+.opt { display: flex; align-items: center; gap: 1.4cqw; font-size: 3cqw; font-family: var(--display); font-weight: 500; background: rgba(255,255,255,.05); border-radius: 1cqw; padding: 1.4cqw 2cqw; }
+.opt i { font-style: normal; font-size: 1.8cqw; color: var(--stage); background: var(--sala); border-radius: 50%; width: 3.2cqw; height: 3.2cqw; display: grid; place-items: center; font-weight: 800; }
+.live { font-size: 1.8cqw; color: var(--muted); }
+.live b { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* barra di partecipazione (ticket 06) */
+.part { margin-top: 2.6cqw; display: grid; grid-template-columns: auto 1fr auto; gap: 1.2cqw; align-items: center; font-size: 1.3cqw; color: var(--muted); }
+.track { height: .9cqw; background: rgba(255,255,255,.1); border-radius: 99px; position: relative; }
+.fill { position: absolute; inset: 0 auto 0 0; background: var(--sala); border-radius: 99px; transition: width .8s ease; }
+.goal { position: absolute; top: -.6cqw; bottom: -.6cqw; width: 2px; background: var(--real); }
+.goal span { position: absolute; top: -1.9cqw; left: 50%; transform: translateX(-50%); white-space: nowrap; color: var(--real); font-size: 1.1cqw; }
+
+/* AD indovina */
+.guess .big { font-size: 14cqw; color: var(--real); }
+
+/* commento AD */
+.quote { font-family: var(--display); font-weight: 500; font-size: 3.6cqw; line-height: 1.15; max-width: 78%; text-wrap: balance; }
+.quote small { display: block; font-family: var(--body); font-size: 1.6cqw; color: var(--muted); margin-top: 1.6cqw; }
+
+/* Variante A: asse con un pallino per voto */
+.axis-wrap { position: relative; align-self: end; height: 82%; margin: 0 3cqw; }
+.axis { position: absolute; left: 0; right: 0; bottom: 4cqw; height: 2px; background: var(--muted); }
+.tick { position: absolute; bottom: 1cqw; transform: translateX(-50%); font-size: 1.9cqw; font-family: var(--display); color: var(--ink); white-space: nowrap; }
+.stack { position: absolute; bottom: calc(4cqw + 6px); transform: translateX(-50%); display: grid; grid-template-columns: repeat(5, 1.3cqw); gap: .35cqw; direction: rtl; }
+.dot { width: 1.3cqw; height: 1.3cqw; border-radius: 50%; background: var(--sala); animation: drop .5s backwards cubic-bezier(.3,1.4,.6,1); }
+@keyframes drop { from { transform: translateY(-12cqw); opacity: 0; } }
+.mean { position: absolute; bottom: 4cqw; transform: translate(-50%, 100%); color: var(--sala); font-size: 1.3cqw; text-align: center; white-space: nowrap; padding-top: .3cqw; }
+.flag { position: absolute; bottom: 4cqw; transform: translateX(-50%); display: grid; justify-items: center; animation: flag .9s cubic-bezier(.2,1.3,.4,1) backwards; }
+.flag .pole { width: 3px; height: 26cqw; background: var(--real); }
+.flag .tag { background: var(--real); color: var(--stage); font-family: var(--display); font-weight: 800; font-size: 2.6cqw; padding: .5cqw 1.4cqw; border-radius: .6cqw; white-space: nowrap; }
+@keyframes flag { from { transform: translate(-50%, -30cqw); opacity: 0; } }
+.gap { position: absolute; bottom: 9cqw; height: 0; border-top: 2px dashed var(--real); }
+.gap span { position: absolute; left: 50%; transform: translate(-50%, -130%); color: var(--real); font-size: 1.7cqw; white-space: nowrap; font-weight: 700; }
+
+/* Variante B: contatore */
+.counter .big { font-size: 17cqw; }
+.chips { display: flex; gap: 1.2cqw; justify-content: center; margin-top: 1.4cqw; flex-wrap: wrap; }
+.chip { font-size: 1.5cqw; color: var(--muted); display: grid; gap: .3cqw; justify-items: center; }
+.chip .b { width: 6cqw; height: .7cqw; background: rgba(255,255,255,.1); border-radius: 99px; overflow: hidden; }
+.chip .b div { height: 100%; background: var(--sala); }
+.delta { font-family: var(--display); font-size: 3cqw; margin-top: 1cqw; }
+
+/* Variante C: colonna che si riempie */
+.colwrap { display: grid; grid-template-columns: 1fr 22cqw 1fr; gap: 2cqw; align-items: stretch; height: 100%; padding-top: 1cqw; }
+.col { position: relative; border-left: 2px solid rgba(255,255,255,.15); border-right: 2px solid rgba(255,255,255,.15); border-bottom: 2px solid rgba(255,255,255,.3); }
+.seg { position: absolute; left: 0; right: 0; display: grid; place-items: center; font-size: 1.3cqw; color: var(--stage); font-weight: 700; text-align: center; box-shadow: inset 0 -2px 0 var(--stage); animation: grow .7s backwards ease-out; transform-origin: bottom; }
+@keyframes grow { from { transform: scaleY(0); } }
+.est { position: absolute; left: -4cqw; right: -4cqw; border-top: 3px dashed var(--sala); z-index: 2; }
+.side { display: grid; align-content: center; gap: 1cqw; font-size: 1.6cqw; }
+.side.r { justify-items: start; } .side.l { justify-items: end; text-align: right; }
+
+@media (prefers-reduced-motion: reduce) { .dot, .flag, .seg { animation: none; } .fill { transition: none; } }
+
+/* barra di regia: non fa parte del design proiettato */
+.regia {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  display: flex; justify-content: center;
+}
+.pill { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; justify-content: center; background: var(--bar); color: var(--bar-ink); border-radius: 14px; padding: 8px 12px; box-shadow: 0 6px 24px rgba(0,0,0,.5); font-size: 13px; max-width: 100%; }
+.pill button { font: inherit; border: 1px solid rgba(16,38,46,.25); background: transparent; color: inherit; border-radius: 8px; padding: 4px 9px; cursor: pointer; }
+.pill button[aria-pressed="true"] { background: var(--bar-ink); color: var(--bar); }
+.pill button:focus-visible { outline: 2px solid var(--real); outline-offset: 2px; }
+.grp { display: flex; gap: 4px; align-items: center; }
+.grp b { min-width: 9ch; text-align: center; }
+</style>
+
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useRef } = React;
+
+// SEGNAPOSTO: valori e scomposizione da sostituire con i dati del ticket 04.
+const QUIZ = {
+  3: {
+    text: "Per ogni 100 € netti che ricevi in busta paga, quanto spende in tutto l'azienda?",
+    opts: [140, 160, 180, 200], real: 200, axis: [120, 220],
+    parts: [["100 € netti", 100, "var(--sala)"], ["Tasse e contributi trattenuti", 40, "#a9dbe5"], ["Contributi a carico azienda", 45, "#ffd08a"], ["TFR e accantonamenti", 15, "var(--real)"]],
+    say: "Per ogni 100 € che arrivano a voi, l'azienda ne mette 200. E lo stipendio è sempre arrivato puntuale: è merito di tutti noi.",
+  },
+  7: {
+    text: "Quanto vale il premio di produzione, introdotto quest'anno, che riceverai?",
+    opts: [300, 500, 800, 1000], real: 800, axis: [200, 1100],
+    parts: [["Premio di produzione", 800, "var(--real)"]],
+    say: "È il primo anno del premio. L'abbiamo voluto per dire grazie a chi ogni giorno fa crescere questa azienda.",
+  },
+};
+const PRESENTI = 70;
+const LETTERS = ["A", "B", "C", "D"];
+const eur = (v) => Math.round(v).toLocaleString("it-IT") + " €";
+
+function fakeVotes(seed) {
+  // distribuzione sbilanciata verso il basso, come previsto dal ticket 03
+  const w = [0.33, 0.37, 0.21, 0.09].map((x) => x * (0.8 + 0.4 * Math.abs(Math.sin(seed * (x + 1) * 7))));
+  const tot = 62 + (seed % 7);
+  const s = w.reduce((a, b) => a + b, 0);
+  const v = w.map((x) => Math.floor((x / s) * tot));
+  v[1] += tot - v.reduce((a, b) => a + b, 0);
+  return v;
+}
+const mean = (q, v) => q.opts.reduce((a, o, i) => a + o * v[i], 0) / v.reduce((a, b) => a + b, 0);
+
+function useCount(target, from, on) {
+  const [n, setN] = useState(on ? from : target);
+  useEffect(() => {
+    if (!on) { setN(target); return; }
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) { setN(target); return; }
+    let raf, t0;
+    const step = (t) => { t0 ??= t; const k = Math.min(1, (t - t0) / 2200); setN(from + (target - from) * (1 - Math.pow(1 - k, 3))); if (k < 1) raf = requestAnimationFrame(step); };
+    setN(from); raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [target, from, on]);
+  return n;
+}
+
+const STEPS = ["Domanda", "L'AD indovina", "La sala ha stimato", "La realtà è", "Commento dell'AD"];
+
+/* ---------- elementi comuni ---------- */
+function Head({ n, q, small }) {
+  return <div><div className="eyebrow">Quiz · domanda {n} di 12</div><h1 className={"q" + (small ? " small" : "")}>{q.text}</h1></div>;
+}
+function Partecipazione({ pct }) {
+  return (
+    <div className="part">
+      <span>Partecipazione della sala</span>
+      <div className="track"><div className="fill" style={{ width: pct + "%" }} /><div className="goal" style={{ left: "80%" }}><span>premio della sala</span></div></div>
+      <span style={{ fontVariantNumeric: "tabular-nums" }}>{pct}%</span>
+    </div>
+  );
+}
+function Voting({ q, votes, live }) {
+  const tot = votes.reduce((a, b) => a + b, 0);
+  return (
+    <div className="center" style={{ gap: "1.6cqw", alignContent: "center" }}>
+      <div className="opts" style={{ width: "100%" }}>{q.opts.map((o, i) => <div className="opt" key={o}><i>{LETTERS[i]}</i>{eur(o)}</div>)}</div>
+      <div className="live">Hanno risposto <b>{live ? tot : 0}</b> su {PRESENTI}</div>
+    </div>
+  );
+}
+function Guess() {
+  return <div className="center guess"><div><div className="label sala">Prima di vedere i voti</div><div className="big">?</div><div className="label">secondo l'AD, la sala ha scelto…</div></div></div>;
+}
+function Comment({ q }) {
+  return <div className="center"><p className="quote">“{q.say}”<small>Testo segnaposto, da scrivere con l'AD</small></p></div>;
+}
+
+/* ---------- Variante A: asse con un pallino per voto ---------- */
+function VariantA({ q, votes, step }) {
+  const [lo, hi] = q.axis;
+  const x = (v) => ((v - lo) / (hi - lo)) * 100 + "%";
+  const m = mean(q, votes);
+  let k = 0;
+  return (
+    <div className="axis-wrap">
+      <div className="axis" />
+      {q.opts.map((o, i) => (
+        <React.Fragment key={o}>
+          <div className="tick" style={{ left: x(o) }}>{eur(o)}</div>
+          <div className="stack" style={{ left: x(o) }}>
+            {Array.from({ length: votes[i] }, (_, j) => <div className="dot" key={j} style={{ animationDelay: (k++ * 18) + "ms" }} />)}
+          </div>
+        </React.Fragment>
+      ))}
+      {step >= 3 && <>
+        <div className="flag" style={{ left: x(q.real) }}><div className="tag">La realtà è {eur(q.real)}</div><div className="pole" /></div>
+        <div className="gap" style={{ left: x(m), width: `calc(${x(q.real)} - ${x(m)})` }}><span>+{eur(q.real - m)} di quanto stimato</span></div>
+      </>}
+      <div className="label sala" style={{ position: "absolute", top: 0, left: 0 }}>La sala ha stimato · {votes.reduce((a, b) => a + b, 0)} voti · in media {eur(m)}</div>
+    </div>
+  );
+}
+
+/* ---------- Variante B: un solo numero che corre ---------- */
+function VariantB({ q, votes, step }) {
+  const m = Math.round(mean(q, votes));
+  const n = useCount(step >= 3 ? q.real : m, m, step >= 3);
+  const tot = votes.reduce((a, b) => a + b, 0);
+  return (
+    <div className="center counter">
+      <div>
+        <div className={"label " + (step >= 3 ? "real" : "sala")}>{step >= 3 ? "La realtà è" : "La sala ha stimato"}</div>
+        <div className={"big " + (step >= 3 ? "real" : "sala")}>{eur(n)}</div>
+        {step < 3 && <div className="chips">{q.opts.map((o, i) => <div className="chip" key={o}><div className="b"><div style={{ width: (votes[i] / tot) * 100 + "%" }} /></div>{eur(o)}</div>)}</div>}
+        {step >= 3 && <div className="delta">la sala aveva stimato <span className="sala">{eur(m)}</span></div>}
+      </div>
+    </div>
+  );
+}
+
+/* ---------- Variante C: colonna che si riempie oltre la stima ---------- */
+function VariantC({ q, votes, step }) {
+  const m = mean(q, votes);
+  const top = q.real * 1.12;
+  const h = (v) => (v / top) * 100 + "%";
+  let acc = 0;
+  return (
+    <div className="colwrap">
+      <div className="side l">
+        <div className="label sala">La sala ha stimato</div>
+        <div className="big sala" style={{ fontSize: "6cqw" }}>{eur(m)}</div>
+        {q.opts.map((o, i) => <div key={o} style={{ color: "var(--muted)" }}>{eur(o)} · {votes[i]} voti</div>)}
+      </div>
+      <div className="col">
+        <div className="est" style={{ bottom: h(m) }} />
+        {step >= 3 && q.parts.map(([lab, v, c], i) => {
+          const b = acc; acc += v;
+          return <div className="seg" key={lab} style={{ bottom: h(b), height: h(v), background: c, animationDelay: i * 450 + "ms" }}>{lab}<br />{eur(v)}</div>;
+        })}
+      </div>
+      <div className="side r">
+        {step >= 3 && <><div className="label real">La realtà è</div><div className="big real" style={{ fontSize: "7cqw" }}>{eur(q.real)}</div><div style={{ color: "var(--muted)" }}>Scomposizione segnaposto</div></>}
+      </div>
+    </div>
+  );
+}
+
+const VARIANTS = { a: ["A", "Asse dei voti", VariantA], b: ["B", "Contatore", VariantB], c: ["C", "Colonna", VariantC] };
+const keys = Object.keys(VARIANTS);
+const initialVariant = () => {
+  const h = location.hash.slice(1).toLowerCase();
+  const p = new URLSearchParams(location.search).get("variant");
+  return keys.includes(h) ? h : keys.includes((p || "").toLowerCase()) ? p.toLowerCase() : "a";
+};
+
+function App() {
+  const [variant, setVariant] = useState(initialVariant);
+  const [qn, setQn] = useState(3);
+  const [step, setStep] = useState(0);
+  const [guess, setGuess] = useState(true);
+  const [seed, setSeed] = useState(3);
+  const q = QUIZ[qn];
+  const votes = fakeVotes(seed + qn);
+  const tot = votes.reduce((a, b) => a + b, 0);
+  const steps = STEPS.map((s, i) => i).filter((i) => guess || i !== 1);
+  const idx = Math.max(0, steps.indexOf(step));
+  const pct = Math.round(((84 * 2) + (step >= 2 ? (tot / PRESENTI) * 100 : 0)) / (step >= 2 ? 3 : 2));
+
+  const go = (d) => setStep(steps[Math.min(steps.length - 1, Math.max(0, idx + d))]);
+  const cycle = (d) => { const v = keys[(keys.indexOf(variant) + d + keys.length) % keys.length]; setVariant(v); try { history.replaceState(null, "", "#" + v); } catch (e) {} };
+  const pickQ = (n) => { setQn(n); setStep(0); };
+
+  useEffect(() => {
+    const on = (e) => {
+      if (e.target.closest("input, textarea, [contenteditable]")) return;
+      if (e.key === "ArrowRight") cycle(1); else if (e.key === "ArrowLeft") cycle(-1);
+      else if (e.key === " " || e.key === "PageDown") { e.preventDefault(); go(1); }
+      else if (e.key === "Backspace" || e.key === "PageUp") { e.preventDefault(); go(-1); }
+      else if (e.key === "1") pickQ(3); else if (e.key === "2") pickQ(7);
+      else return;
+    };
+    addEventListener("keydown", on);
+    return () => removeEventListener("keydown", on);
+  });
+
+  const [vk, vname, V] = VARIANTS[variant];
+  let body;
+  if (step === 0) body = <Voting q={q} votes={votes} live />;
+  else if (step === 1) body = <Guess />;
+  else if (step === 4) body = <Comment q={q} />;
+  else body = <V q={q} votes={votes} step={step} key={variant + qn + seed} />;
+
+  return (
+    <>
+      <p className="note">Prototipo usa e getta del ticket 07. Valori e voti sono <b>segnaposto</b> in attesa dei dati reali. Spazio o PagGiù per avanzare (anche col telecomando delle slide), ← → per cambiare variante.</p>
+      <section className="stage" aria-label="Schermo proiettato">
+        <span className="ph">segnaposto</span>
+        <Head n={qn} q={q} small={step >= 2 && step <= 3} />
+        {body}
+        <Partecipazione pct={pct} />
+      </section>
+      <nav className="regia" aria-label="Regia">
+        <div className="pill">
+          <div className="grp"><button onClick={() => cycle(-1)} aria-label="Variante precedente">‹</button><b>{vk} · {vname}</b><button onClick={() => cycle(1)} aria-label="Variante successiva">›</button></div>
+          <div className="grp"><button onClick={() => go(-1)}>Indietro</button><b>{idx + 1}/{steps.length} {STEPS[step]}</b><button onClick={() => go(1)}>Avanti</button></div>
+          <div className="grp">{[3, 7].map((n) => <button key={n} aria-pressed={qn === n} onClick={() => pickQ(n)}>Quiz {n}</button>)}</div>
+          <button aria-pressed={guess} onClick={() => { setGuess(!guess); if (step === 1) setStep(0); }}>L'AD indovina</button>
+          <button onClick={() => setSeed(seed + 1)}>Altri voti</button>
+        </div>
+      </nav>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
