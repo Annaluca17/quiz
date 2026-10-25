@@ -6,7 +6,7 @@ status: open
 
 ## Destination
 
-Specifica pronta da eseguire per il questionario live della festa aziendale (~70 persone, tra ~2 mesi): domande definitive con risposte corrette, piattaforma live + strumento per il Messaggio all'AD scelti, gamification anonima, rivelazioni animate, scaletta della serata.
+Specifica pronta da eseguire, e SPA realizzata e pubblicata, per il questionario live della festa aziendale (~70 persone, tra ~2 mesi): domande definitive con risposte corrette, piattaforma live + strumento per il Messaggio all'AD scelti, gamification anonima, rivelazioni animate, scaletta della serata.
 
 ## Notes
 
@@ -22,6 +22,7 @@ Specifica pronta da eseguire per il questionario live della festa aziendale (~70
 - **Tono (vincolante su ogni ticket)**: l'AD è "sul piede di guerra" sui benefit dati per scontati; Luca fa da paciere. Il messaggio è "ti costo tanto, ricordalo, ma ti voglio bene": valorizzare, non rinfacciare; niente scontro con i dipendenti.
 - Finalità del Quiz: rendere visibile il costo dei benefit ormai dati per scontati.
 - A fine di ogni ticket: indicare a Luca prompt, skill e modello del passo successivo.
+- **Esecuzione nella mappa (decisione di Luca):** la realizzazione della SPA (codice, deploy, prova di carico) è nel perimetro e procede per ticket `wayfinder:task` derivati dall'Architettura della SPA. Il discorso dell'AD resta fuori.
 - Dopo la serata: export solo all'AD; sintesi ai dipendenti entro 2–3 settimane (esecuzione fuori perimetro).
 
 ## Decisions so far
