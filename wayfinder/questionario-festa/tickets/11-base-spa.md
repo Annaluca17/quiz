@@ -2,7 +2,7 @@
 title: Base della SPA
 labels: [wayfinder:task]
 status: open
-assignee:
+assignee: Luca
 blocked_by: [10-architettura-spa]
 ---
 
