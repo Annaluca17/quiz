@@ -37,7 +37,6 @@ Specifica pronta da eseguire per il questionario live della festa aziendale (~70
 
 ## Not yet specified
 
-- Scaletta e durata del momento questionario nella serata.
 - Battute a voce dell'AD per ogni Rivelazione (compresa la puntualità degli stipendi sul Quiz 3), da scrivere dopo i dati reali.
 - Testo dell'annuncio finale dell'AD (slot a porta aperta, invito esplicito a scrivere anche le critiche nel Messaggio all'AD) + ultima schermata con link/QR al Messaggio all'AD.
 - Prova generale (quando, con chi, senza rompere il segreto).
