@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/schermo", "destination": "/index.html" },
+    { "source": "/regia", "destination": "/index.html" }
+  ]
+}

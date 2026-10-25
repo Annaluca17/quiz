@@ -1,0 +1,59 @@
+/* Token Immedia (ticket 07): cyan per la sala, gold per la realtà, navy per il testo, fondo chiaro. */
+:root {
+  --page: #e8eef5;
+  --stage: #ffffff;
+  --stage-2: #eff6ff;
+  --navy: #1e2939;
+  --muted: #6a7282;
+  --line: #e5e7eb;
+  --sala: #00aeef;
+  --ocean: #0369a1;
+  --sky: #dbeafe;
+  --real: #c48820;
+  --errore: #b42318;
+  --display: 'Nunito', Arial, sans-serif;
+  --body: 'Inter', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { margin: 0; min-height: 100%; }
+
+body {
+  background: var(--page);
+  color: var(--navy);
+  font-family: var(--body);
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3 { font-family: var(--display); font-weight: 800; margin: 0; }
+
+button {
+  font: inherit;
+  font-family: var(--display);
+  font-weight: 800;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--stage);
+  color: var(--navy);
+  padding: 0.7em 1.1em;
+}
+button:disabled { opacity: 0.5; cursor: default; }
+button.primario { background: var(--ocean); border-color: var(--ocean); color: #fff; }
+button.scelto { background: var(--sala); border-color: var(--sala); color: #fff; }
+
+input {
+  font: inherit;
+  padding: 0.6em 0.8em;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.muted { color: var(--muted); }
+.errore { color: var(--errore); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

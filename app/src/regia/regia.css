@@ -1,0 +1,14 @@
+.regia { max-width: 960px; margin: 0 auto; padding: 24px; display: grid; gap: 20px; }
+.regia header { display: flex; align-items: center; gap: 16px; }
+.regia header button { margin-left: auto; }
+.regia section { background: var(--stage); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 12px; }
+.regia .numeri { display: flex; gap: 32px; }
+.regia .numeri div { display: grid; }
+.regia .numeri b { font-family: var(--display); font-weight: 900; font-size: 2.4rem; }
+.regia .comandi { display: flex; flex-wrap: wrap; gap: 10px; }
+.regia .salta { display: flex; gap: 10px; align-items: center; }
+.regia .serate ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.regia .serate li button { padding: 0.2em 0.7em; margin-left: 8px; }
+.regia .aiuto { font-size: 0.9rem; }
+.accesso { max-width: 360px; margin: 15vh auto; padding: 24px; display: grid; gap: 14px; background: var(--stage); border-radius: 12px; }
+.accesso label { display: grid; gap: 6px; }

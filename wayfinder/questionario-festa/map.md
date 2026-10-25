@@ -45,6 +45,7 @@ Specifica pronta da eseguire, e SPA realizzata e pubblicata, per il questionario
 - Prova generale (quando, con chi, senza rompere il segreto); va cronometrata sulla scaletta e serve a tarare la soglia del premio.
 - Configurazione del modulo Tally con l'AD (una domanda, chiusura a 48 ore, account dell'AD): ne serve l'URL per il QR della schermata finale.
 - Gestione del segreto verso board e direzione fino alla serata (materiali, account, dati richiesti).
+- Dopo la serata: cancellazione di voti grezzi e token entro 7 giorni e messa in pausa del progetto Supabase ([Architettura della SPA](tickets/10-architettura-spa.md)); nessun ticket la copre ancora (una RPC Regia o un passo manuale da annotare col [Deploy su Vercel](tickets/16-deploy-vercel.md)).
 
 ## Out of scope
 

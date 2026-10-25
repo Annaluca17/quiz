@@ -1,0 +1,25 @@
+.telefono {
+  min-height: 100dvh;
+  padding: max(24px, env(safe-area-inset-top)) 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.telefono h1 { font-size: 1.6rem; line-height: 1.2; }
+.telefono .opzioni { display: grid; gap: 10px; }
+.telefono .opzioni button { font-size: 1.15rem; padding: 0.9em; text-align: left; }
+.telefono .conto { font-family: var(--display); font-weight: 900; margin: 0; }
+.telefono .bottone-link {
+  display: inline-block;
+  text-align: center;
+  background: var(--ocean);
+  color: #fff;
+  font-family: var(--display);
+  font-weight: 800;
+  padding: 0.9em;
+  border-radius: 10px;
+  text-decoration: none;
+}
