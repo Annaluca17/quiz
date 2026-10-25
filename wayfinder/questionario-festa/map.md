@@ -33,10 +33,12 @@ Specifica pronta da eseguire per il questionario live della festa aziendale (~70
 - [Set di domande definitivo](tickets/03-set-domande.md): 12 domande a scelta chiusa con la voce dell'AD (2 di apertura, 5 Quiz su costo ogni 100 € netti, buoni pasto, welfare, assicurazione sanitaria e premio di produzione, 4 Polso con spazio alle critiche, 1 di chiusura) più il Messaggio all'AD "C'è qualcosa che vuoi dirmi?".
 - [Meccanica di gamification anonima](tickets/06-gamification.md): un'unica squadra, la sala. Le Rivelazioni mostrano "La sala ha stimato / La realtà è", una barra di partecipazione sblocca un premio collettivo a soglia raggiungibile e su 2 Quiz l'AD prova a indovinare il voto della sala. Niente punteggi individuali, nickname, squadre o classifiche.
 - [Scelta delle piattaforme](tickets/05-scelta-piattaforme.md): SPA su misura (Vercel Hobby + Supabase Realtime free, account Luca) per Quiz e Polso; Tally con email personale dell'AD per il Messaggio all'AD (riserva: Google Form dell'AD); da verificare l'uso di Vercel Hobby per un evento aziendale.
+- [Rivelazioni e animazioni video delle risposte](tickets/07-rivelazioni-animate.md): asse in euro con un pallino per voto, bandierina della realtà con lo scarto "+X € di quanto stimato" (stima = media pesata), scomposizione del costo solo sul Quiz 3, colori Immedia, commento dell'AD solo a voce, niente video.
 
 ## Not yet specified
 
 - Scaletta e durata del momento questionario nella serata.
+- Battute a voce dell'AD per ogni Rivelazione (compresa la puntualità degli stipendi sul Quiz 3), da scrivere dopo i dati reali.
 - Testo dell'annuncio finale dell'AD (slot a porta aperta, invito esplicito a scrivere anche le critiche nel Messaggio all'AD) + ultima schermata con link/QR al Messaggio all'AD.
 - Prova generale (quando, con chi, senza rompere il segreto).
 - Piano B: rete o piattaforma che cadono durante la serata.
