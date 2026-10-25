@@ -2,7 +2,7 @@
 title: Scelta delle piattaforme
 labels: [wayfinder:grilling]
 status: open
-assignee:
+assignee: Luca
 blocked_by: [01-piattaforme-live, 02-strumento-messaggio-ad]
 ---
 
