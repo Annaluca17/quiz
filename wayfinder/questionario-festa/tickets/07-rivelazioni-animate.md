@@ -2,7 +2,7 @@
 title: Rivelazioni e animazioni video delle risposte
 labels: [wayfinder:prototype]
 status: open
-assignee:
+assignee: Luca
 blocked_by: [03-set-domande, 05-scelta-piattaforme]
 ---
 
