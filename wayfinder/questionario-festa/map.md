@@ -32,6 +32,7 @@ Specifica pronta da eseguire per il questionario live della festa aziendale (~70
 - [Strumenti gratuiti per il Messaggio all'AD anonimo di 48 ore](tickets/02-strumento-messaggio-ad.md): Tally come candidato principale, Google Form personale come riserva.
 - [Set di domande definitivo](tickets/03-set-domande.md): 12 domande a scelta chiusa con la voce dell'AD (2 di apertura, 5 Quiz su costo ogni 100 € netti, buoni pasto, welfare, assicurazione sanitaria e premio di produzione, 4 Polso con spazio alle critiche, 1 di chiusura) più il Messaggio all'AD "C'è qualcosa che vuoi dirmi?".
 - [Meccanica di gamification anonima](tickets/06-gamification.md): un'unica squadra, la sala. Le Rivelazioni mostrano "La sala ha stimato / La realtà è", una barra di partecipazione sblocca un premio collettivo a soglia raggiungibile e su 2 Quiz l'AD prova a indovinare il voto della sala. Niente punteggi individuali, nickname, squadre o classifiche.
+- [Scelta delle piattaforme](tickets/05-scelta-piattaforme.md): SPA su misura (Vercel Hobby + Supabase Realtime free, account Luca) per Quiz e Polso; Tally con email personale dell'AD per il Messaggio all'AD (riserva: Google Form dell'AD); da verificare l'uso di Vercel Hobby per un evento aziendale.
 
 ## Not yet specified
 
