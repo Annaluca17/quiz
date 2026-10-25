@@ -21,6 +21,7 @@ Specifica pronta da eseguire per il questionario live della festa aziendale (~70
   - Luca in regia (account a nome di Luca), l'AD conduce (poco pratico di tecnologia).
 - **Tono (vincolante su ogni ticket)**: l'AD è "sul piede di guerra" sui benefit dati per scontati; Luca fa da paciere. Il messaggio è "ti costo tanto, ricordalo, ma ti voglio bene": valorizzare, non rinfacciare; niente scontro con i dipendenti.
 - Finalità del Quiz: rendere visibile il costo dei benefit ormai dati per scontati.
+- A fine di ogni ticket: indicare a Luca prompt, skill e modello del passo successivo.
 - Dopo la serata: export solo all'AD; sintesi ai dipendenti entro 2–3 settimane (esecuzione fuori perimetro).
 
 ## Decisions so far
